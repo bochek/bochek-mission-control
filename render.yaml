@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: mission-control
+    env: node
+    region: oregon
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NEXT_PUBLIC_GATEWAY_OPTIONAL
+        value: "true"
+      - key: NODE_ENV
+        value: production
